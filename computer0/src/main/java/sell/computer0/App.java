@@ -13,12 +13,8 @@ import sell.computer0.App;
 @RestController
 @EnableAutoConfiguration
 public class App {
-
-	
-	
-	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String hello(@RequestBody Object object) {
-		return String.format("{\"payload\":\"%s\"}", object);
+	public String helloworld(@RequestBody Object object) {
+		return "Hello world";
 	}
 }

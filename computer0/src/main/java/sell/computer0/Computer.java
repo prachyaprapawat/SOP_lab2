@@ -10,7 +10,7 @@ public class Computer {
 		this.brand = Brand ;
 		this.price = price;
 		this.generation = gen;
-	}
+	} 
 	public Computer() {}
 	
 	public int getPrice() {

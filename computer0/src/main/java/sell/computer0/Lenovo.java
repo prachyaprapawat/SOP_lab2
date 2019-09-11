@@ -8,7 +8,7 @@ public class Lenovo extends Computer{
 			this.brand = brand;
 	}
 	 public Lenovo() {
-		// TODO Auto-generated constructor stub
+	
 	}
 
 	

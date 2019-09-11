@@ -9,9 +9,7 @@ public class SellerSingleton {
 	static int  money;
 	
 	private SellerSingleton() {
-		
 	}
-	
 	public static SellerSingleton getInstance() {
 		if(instance == null) {
 			instance = new SellerSingleton();

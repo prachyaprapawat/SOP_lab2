@@ -8,7 +8,6 @@ public class Dell  extends Computer{
 		this.generation = gen;
 		this.brand = brand;
 		this.mycom = "dell";
-		
 	}
 	public Dell() {}
 	

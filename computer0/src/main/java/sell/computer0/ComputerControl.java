@@ -1,21 +1,20 @@
 package sell.computer0;
 import sell.computer0.Computer;
 
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 
 @SpringBootApplication
@@ -55,7 +54,11 @@ public class ComputerControl {
 	}
 	
 	@RequestMapping(value= "/computer/create-{computer}-{gen}-{brand}-{price}", method=RequestMethod.POST)
-	public ResponseEntity<Computer> create(@PathVariable("gen") String gen, @PathVariable("brand") String brand, @PathVariable("price") int price  , @PathVariable("computer") String computerx){
+	public ResponseEntity<Computer> create(@PathVariable("gen") String gen
+			, @PathVariable("brand") String brand
+			, @PathVariable("price") int price  
+			, @PathVariable("computer") String computerx)
+	{
 		com.add(comF.getCom(computerx,price,brand ,gen));
 		sell.setMoney(price+sell.getMoney());
 		money = Integer.toString(sell.getMoney());
@@ -65,12 +68,10 @@ public class ComputerControl {
 		return new ResponseEntity<Computer>(comF.getCom(computerx,price,brand,gen), HttpStatus.OK);
 	}
 	
-	
 	@RequestMapping(value= "/computer/all", method=RequestMethod.GET)
 	public ArrayList<Computer> AllCom() {
 		return com;
 	}
-	
 	public static void main(String[] args) {
 		SpringApplication.run(ComputerControl.class, args);
 		
